@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
   QMainWindow::resize(800,600);
   setApplicationFontSize(18);
-  setWindowIcon(QIcon(":/icons/smile.png"));
+  setWindowIcon(QIcon(":/icons/talkbox.png"));
 
   //Speaking
   m_soundEffect = std::make_unique<QSoundEffect>();

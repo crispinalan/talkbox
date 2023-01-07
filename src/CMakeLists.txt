@@ -35,7 +35,8 @@ find_package(Qt5Multimedia REQUIRED)
 set (talkbox_HDRS
 	dictionary.h
 	speechengine.h
-	wavcat.h		
+	wavcat.h
+	wavamp.h
 	)
 #source files
 set (talkbox_SRCS
@@ -44,6 +45,7 @@ set (talkbox_SRCS
 	dictionary.cpp
 	speechengine.cpp
 	wavcat.cpp
+	wavamp.cpp
 	)
 #ui files
 set (talkbox_UIS

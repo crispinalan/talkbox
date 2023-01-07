@@ -19,7 +19,7 @@
 
 #include "dictionary.h"
 #include "wavcat.h"
-
+#include "wavamp.h"
 
 class SpeechEngine
 {
@@ -33,7 +33,8 @@ public:
 	
 private: 
 
-	QString getDiphonePath(QString dipStr);	
+	QString getDiphonePath(QString dipStr);
+	WavAmp *wa;
 
 	
 };

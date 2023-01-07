@@ -15,10 +15,39 @@
 #include <cstring>     //memcpy
 
 
+//Wav file format
+
+/*
+ *   -------------------
+ *   | Chunk | RIFF   |
+ *    ------------------
+ *   | Chunk | FMTHDR |
+ *   -------------------
+ *   | Chunk | FMT    |
+ *   -------------------
+ *   | Chunk | DATA   |
+ *   -------------------
+*/
+
+// 0 - 4	“RIFF”	Marks the file as a riff file. Characters are each 1 byte long.
+// 4 - 8	File size (integer)	Size of the overall file - 8 bytes (32-bit integer).
+// 8 -12	“WAVE”	File Type Header. Always equals “WAVE”.
+// 12-16	Sub_Chunk1 ID = “fmt "	Format chunk marker. Includes trailing null
+// 16-20	Sub_Chunk1 Size -size of format data
+// 20-22	AudioFormat (1 is PCM) - 2 byte integer
+// 22-24	Number of Channels - 2 byte integer
+// 24-28	Sample Rate - 32 byte integer. Sample Rate = Number of Samples per second
+// 28-32	ByteRate	(Sample Rate * BitsPerSample * Channels) / 8
+// 32-34	BlockAlign (BitsPerSample * Channels)
+// 34-36	Bits per sample
+// 36-40	Sub_Chunk2 ID = Data chunk header.  Marks the start of the data section.
+// 40-44	SubChunk2 Size -size of the data section
+// 44-End   Actual data
+
+
 //wav specification
 // https://sites.google.com/site/musicgapi/technical-documents/wav-file-format
 
-//much of this is raw C++11 and C
 
 class WavCat
 {
@@ -32,9 +61,7 @@ public:
 	
 	virtual ~WavCat();
 
-    WavCat operator+( const WavCat& wavcat ); 
-    
-   
+    WavCat operator+( const WavCat& wavcat );
     void save( const std::string & filename );
     
     //header RIFF chunk
@@ -68,37 +95,26 @@ public:
         char dataID[4];     // 4 bytes
         int32_t dataSIZE;   // 4 bytes
     };
-    //fact chunk contains compression info (we want no compression)
-    struct FACT
-    {
-        int32_t samplesNumber;
-        int32_t t;
-    };
+
 public:
     static const int RIFF_SIZE      = 12;
     static const int FMTHDR_SIZE    = 8;
     static const int FMT_SIZE       = 16;
     static const int DATA_SIZE      = 8;
-    static const int FACT_SIZE      = 8;
+
 
 private:
 
     static int32_t calcRiffSize( int32_t fmtSIZE, int32_t dataSIZE );
     void updateRiffSize();
     
-
-private:
-    
     std::vector<char>   wavVector; //vector storage
 
     RIFF        riff;
     FMTHDR      fmthdr;
     FMT         fmt;
-    std::vector<char>   fmtExtraBytes;
-    FACT        fact;
     DATA        data;
-    int16_t     extraParamLength;
-    std::vector<char>   extraParam;
+
 	
 };
 

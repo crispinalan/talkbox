@@ -8,6 +8,7 @@
 SpeechEngine::SpeechEngine()
 {		
   dict = new Dictionary();
+  wa= new WavAmp(); //amplification
 }
 
 
@@ -1712,7 +1713,7 @@ void SpeechEngine::generateTalkOut(QString str) {
 	 }
 	
 		//Must initialise wavout using wavEmpty
-     WavCat wavEmpty(1,8000,16);    
+     WavCat wavEmpty(1,16000,16);
      wavEmpty.save( "/tmp/empty.wav" );    
      WavCat wavout("/tmp/empty.wav"); //Assign empty wav to concatenation output
 	
@@ -1727,7 +1728,15 @@ void SpeechEngine::generateTalkOut(QString str) {
 	  wavout=wavout+tmp;	  
       
 	}	
-	wavout.save("/tmp/talkout.wav");
+
+
+	wavout.save("/tmp/merge.wav");
+	//quick fix: increase amplification using wavAmp
+	 QString pathin ="/tmp/merge.wav";
+	 QString pathout ="/tmp/talkout.wav";
+	 double gain =3.0;
+     // qDebug()<<"gain = "<<gain<<"\n";
+	 wa->wavAmp(pathin.toStdString(), pathout.toStdString(),gain);
 	
 }
 

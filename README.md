@@ -8,9 +8,9 @@ A screenshot of TalkBox is shown below.
 
 ## Deployment
 
-### Binary App Image
+### Prebuilt Binary
 
-A 64 bit binary application image for TalkBox is available and can be downloaded from [here](https://github.com/crispinalan/talkbox/tree/main/app-binary).
+A 64 bit prebuilt binary for TalkBox is available and can be downloaded from [here](https://github.com/crispinalan/talkbox/tree/main/app-binary).
 
 You first need to ensure that all the required packages for a Qt app are installed on your distro. With many KDE distros such as [Kubuntu](https://kubuntu.org/), [KaOS](https://kaosx.us/), [Siduction KDE](https://siduction.org/), [KDE Neon](https://neon.kde.org/) the Qt5 libraries are installed by default and you just need to double click on the TalkBox executable to run it once extracted.
 
@@ -94,7 +94,6 @@ TalkBox Qt is licensed under GPL v3.0.
 
 * Diphone collection and synthesis Alan W. Black and Kevin Lenzo [2000](https://www.cs.cmu.edu/~awb/papers/ICSLP2000_diphone/index.html.)
 
-* [Feather open source icons](https://github.com/feathericons)
 
 
 
