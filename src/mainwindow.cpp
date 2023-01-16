@@ -214,7 +214,7 @@ void MainWindow::on_actionAbout_triggered() {
   QString about_text = "TalkBox is a diphone speech synthesiser for reading plain text."
                        "\nBuilt with Qt 5.15"
                        "\nAlan Crispin (2023)";
-  QMessageBox::information(this, "TalkBox (Qt) v0.1.1",
+  QMessageBox::information(this, "TalkBox (Qt) v0.1.2",
                            about_text);
 }
 
