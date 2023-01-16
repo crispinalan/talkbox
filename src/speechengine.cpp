@@ -68,7 +68,7 @@ QString SpeechEngine::getDiphonePath(QString dipStr){
 	else if(dipStr=="ae-ay") return QApplication::applicationDirPath()+"/diphone/ae-ay.wav";
 	else if(dipStr=="ae-b") return QApplication::applicationDirPath()+"/diphone/ae-b.wav";  
 	else if(dipStr=="ae-ch") return QApplication::applicationDirPath()+"/diphone/ae-ch.wav"; 
-	else if(dipStr=="a-d") return QApplication::applicationDirPath()+"/diphone/ae-d.wav";
+	else if(dipStr=="ae-d") return QApplication::applicationDirPath()+"/diphone/ae-d.wav";
 	else if(dipStr=="ae-dh") return QApplication::applicationDirPath()+"/diphone/ae-dh.wav";
 	else if(dipStr=="ae-eh") return QApplication::applicationDirPath()+"/diphone/ae-eh.wav";
 	else if(dipStr=="ae-er") return QApplication::applicationDirPath()+"/diphone/ae-er.wav";
@@ -90,7 +90,7 @@ QString SpeechEngine::getDiphonePath(QString dipStr){
 	else if(dipStr=="ae-pau") return QApplication::applicationDirPath()+"/diphone/ae-pau.wav";
 	else if(dipStr=="ae-r") return QApplication::applicationDirPath()+"/diphone/ae-r.wav";
 	else if(dipStr=="ae-s") return QApplication::applicationDirPath()+"/diphone/ae-s.wav";
-	else if(dipStr=="ae -sh") return QApplication::applicationDirPath()+"/diphone/ae-sh.wav";
+	else if(dipStr=="ae-sh") return QApplication::applicationDirPath()+"/diphone/ae-sh.wav";
 	else if(dipStr=="ae-t") return QApplication::applicationDirPath()+"/diphone/ae-t.wav";
 	else if(dipStr=="ae-th") return QApplication::applicationDirPath()+"/diphone/ae-th.wav";
 	else if(dipStr=="ae-uh") return QApplication::applicationDirPath()+"/diphone/ae-uh.wav";
@@ -737,7 +737,7 @@ QString SpeechEngine::getDiphonePath(QString dipStr){
 	 else if(dipStr == "ih-l") return QApplication::applicationDirPath()+"/diphone/ih-l.wav"; 
 	 else if(dipStr == "ih-m") return QApplication::applicationDirPath()+"/diphone/ih-m.wav"; 
 	 else if(dipStr == "ih-n") return QApplication::applicationDirPath()+"/diphone/ih-n.wav"; 
-	 else if(dipStr == "ih-ng") return QApplication::applicationDirPath()+"/diphone/ih-hg.wav"; 
+	 else if(dipStr == "ih-ng") return QApplication::applicationDirPath()+"/diphone/ih-ng.wav";
 	 else if(dipStr == "ih-ow") return QApplication::applicationDirPath()+"/diphone/ih-ow.wav"; 
 	 else if(dipStr == "ih-oy") return QApplication::applicationDirPath()+"/diphone/ih-oy.wav"; 
 	 else if(dipStr == "ih-p") return QApplication::applicationDirPath()+"/diphone/ih-p.wav"; 

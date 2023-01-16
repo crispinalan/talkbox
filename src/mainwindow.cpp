@@ -118,7 +118,7 @@ void MainWindow::on_actionExit_triggered()
 }
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-        qDebug()<<"close event\n";
+        //qDebug()<<"close event\n";
 }
 
 void MainWindow::on_actionUndo_triggered()

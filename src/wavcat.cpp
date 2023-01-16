@@ -10,7 +10,7 @@
 WavCat::WavCat()
 {
 
-    fmt.wFormatTag      = 0; //unknown format tag until read
+    fmt.wFormatTag      = 1; //unknown format tag until read
 
 }
 
@@ -24,7 +24,9 @@ WavCat::~WavCat()
 
 WavCat::WavCat( const std::string & filename )
 {
-    fmt.wFormatTag      = 0; //unknown format tag until read
+    fmt.wFormatTag      = 1; //unknown format tag until read
+
+    //std::cout <<" wavcat file: "<<filename<<std::endl; //debugging
 
     std::ifstream file( filename.c_str(), std::ios_base::binary | std::ios_base::in );
 
@@ -93,10 +95,12 @@ WavCat WavCat::operator+( const WavCat &w )
 {
     if( fmt.wFormatTag != w.fmt.wFormatTag )  {
         std::cout<<"Concatenation failure: audio formats not the same"<<std::endl;
-        std::cout<<"Concatenation failure: check for missing diphone file"<<std::endl;
-        //more work needed here
-        // problem related to empty diphone string or missing diphone: prevent upstream
-        //return w;
+        std::cout<<"Check diphone header using qwavfileheaderdump"<<std::endl;
+        std::cout<<"FormatTag = "<<w.fmt.wFormatTag<<std::endl;
+        std::cout<<"Channels = "<<w.fmt.nChannels<<std::endl;
+        std::cout<<"Sample rate = "<<w.fmt.nSamplesPerSec<<std::endl;
+        //prevent upstream
+
 	}
 
     WavCat res; //result
