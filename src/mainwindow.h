@@ -23,6 +23,8 @@
 #include <QDebug>
 #include <QMessageBox>
 
+#include <QMediaPlayer>
+#include <QMediaPlaylist>
 
 
 //audio

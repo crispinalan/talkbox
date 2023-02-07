@@ -10,11 +10,9 @@ A screenshot of TalkBox is shown below.
 
 ### Prebuilt Binary
 
-A 64 bit prebuilt binary for TalkBox is available and can be downloaded from [here](https://github.com/crispinalan/talkbox/tree/main/app-binary).
+A 64 bit prebuilt binary for TalkBox is available and can be downloaded from [here](https://github.com/crispinalan/talkbox/tree/main/binary).
 
 You first need to ensure that all the required packages for a Qt app are installed on your distro. With many KDE distros such as [Kubuntu](https://kubuntu.org/), [KaOS](https://kaosx.us/), [Siduction KDE](https://siduction.org/), [KDE Neon](https://neon.kde.org/) the Qt5 libraries are installed by default and you just need to double click on the TalkBox executable to run it once extracted.
-
-The extracted directory contains the diphone and sounds folders together with the TalkBox executable.
 
 If TalkBox does not execute by double clicking on the binary file then make sure that it has executable permissions. Right click on it and check properties.
 
@@ -48,7 +46,7 @@ sudo apt install build-essential
 sudo apt install cmake
 ```
 
-You need to ensure that all the required packages for developing a Qt app are installed (e.g. with Ubuntu qtbase5-dev, qt5multimedia5-dev, mesa-common-dev etc.).
+You need to ensure that all the required packages for developing a Qt app are installed (e.g. with Ubuntu qtbase5-dev, qt5multimedia5-dev, mesa-common-dev etc.). You needs to add your diphones to the diphones directory. An example set of diphones can be downloaed from [here](https://github.com/hypnaceae/DiphoneSynth/blob/master/diphones_license.txt).
 
 
 ### Building
@@ -61,7 +59,7 @@ cd build
 cmake ..
 make
 ```
-Copy the diphone and sound folders (in the app image download) to the build folder. To run TalkBox from the terminal use:
+To run TalkBox from the terminal use:
 
 ```
 ./talkbox
@@ -88,7 +86,7 @@ TalkBox Qt is licensed under GPL v3.0.
 
 ## Acknowledgements
 
-* Qt is a software development framework for cross-platform development and is available under the GNU Lesser General Public License [version 3](https://doc.qt.io/qt-5/lgpl.html). The Qt Company have recently released the Qt 5.15.6 LTS version as [open-source](https://www.phoronix.com/news/Qt-5.15.6-LTS-Open-Source).
+* Qt is a software development framework for cross-platform development and is available under the GNU Lesser General Public License [version 3](https://doc.qt.io/qt-5/lgpl.html). The Qt Company have recently released the Qt 5.15.6 LTS version (essential components) as [open-source](https://www.phoronix.com/news/Qt-5.15.6-LTS-Open-Source).
 
 * [Diphone Source and License](https://github.com/hypnaceae/DiphoneSynth/blob/master/diphones_license.txt)
 

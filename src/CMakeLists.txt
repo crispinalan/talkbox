@@ -57,6 +57,8 @@ QT5_WRAP_UI(UIS ${talkbox_UIS})
 # resource files
 set (talkbox_RSCS
 	icons.qrc
+	diphones.qrc
+    sounds.qrc
     )
 QT5_ADD_RESOURCES(RSCS ${talkbox_RSCS})
 

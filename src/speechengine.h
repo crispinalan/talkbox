@@ -17,6 +17,10 @@
 #include <QList>
 
 
+#include <QFile>
+#include <QTemporaryFile>
+
+
 #include "dictionary.h"
 #include "wavcat.h"
 #include "wavamp.h"
@@ -28,12 +32,17 @@ public:
 		
 	Dictionary *dict;
 	void generateTalkOut(QString str);
-	
+	QStringList getDiphonePlayList(QString str);
+
 
 	
 private: 
 
 	QString getDiphonePath(QString dipStr);
+
+	void createDiphones();
+
+
 	WavAmp *wa;
 
 	

@@ -37,6 +37,9 @@ MainWindow::MainWindow(QWidget *parent) :
   m_eventLoop = std::make_unique<QEventLoop>();
   connect(m_soundEffect.get(), SIGNAL(playingChanged()), m_eventLoop.get(), SLOT(quit()));
 
+  //set up bleep
+  QFile bleepfile(":/sounds/bleep.wav"); QFile::copy(bleepfile.fileName(), "/tmp/bleep.wav");
+
   //set up speech engine
   speech = new SpeechEngine();
   //text ="hello";
@@ -153,9 +156,9 @@ void MainWindow::on_actionPaste_triggered()
 
 void MainWindow::updateEventLoop(){
 
-    if(fileExists(QApplication::applicationDirPath()+"/sounds/bleep.wav")) {
+    if(fileExists("/tmp/bleep.wav")) {
         qDebug()<<"bleep found\n";
-        QString _bleep= QApplication::applicationDirPath()+"/sounds/bleep.wav";
+        QString _bleep= "/tmp/bleep.wav";
         m_soundEffect->setSource(QUrl::fromLocalFile(_bleep));
         m_soundEffect->play();
         m_eventLoop->exec();
@@ -177,6 +180,7 @@ void MainWindow::on_pushButtonSpeak_clicked()
     speakText();
 }
 
+
 //-------------------------------------------------
 
 void MainWindow::speakText() {
@@ -184,16 +188,6 @@ void MainWindow::speakText() {
      //qDebug()<<"speakText reached ...\n";
 
     QString talkStr= ui->textEdit->toPlainText();
-
-     //Check if diphone directory exists
-    QString dictPath =QApplication::applicationDirPath()+"/diphone/";
-
-    if(!directoryExists(dictPath)) {
-		QString str ="Speak diphone directory does not exist."
-		  "\nInstall diphones by unzipping diphone.tar to application path.";
-		QMessageBox::information(this, "Speak Diphones Missing", str);
-		return;
-	}
 
 
 	speech->generateTalkOut(talkStr);
@@ -214,7 +208,7 @@ void MainWindow::on_actionAbout_triggered() {
   QString about_text = "TalkBox is a diphone speech synthesiser for reading plain text."
                        "\nBuilt with Qt 5.15"
                        "\nAlan Crispin (2023)";
-  QMessageBox::information(this, "TalkBox (Qt) v0.1.2",
+  QMessageBox::information(this, "TalkBox (Qt) v0.1.3",
                            about_text);
 }
 
